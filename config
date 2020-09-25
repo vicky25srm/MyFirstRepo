@@ -1,0 +1,18 @@
+apiVersion: v1
+clusters:
+- cluster:
+    insecure-skip-tls-verify: true
+    server: https://{{Placeholder:master-node-ip. Remove the enclosing parenthesis}}:6443
+  name: k8scluster
+contexts:
+- context:
+    cluster: k8scluster
+    user: k8scredentials
+  name: k8scontext
+current-context: k8scontext
+kind: Config
+preferences: {}
+users:
+- name: k8scredentials
+  user:
+    token: {{Placeholder:cluster-admin-token. Remove the enclosing parenthesis}}
